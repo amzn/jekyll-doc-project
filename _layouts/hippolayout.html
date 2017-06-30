@@ -1,0 +1,41 @@
+<!-- syntax highlighter from https://github.com/mojombo/tpw/blob/master/css/syntax.css (MIT license) -->
+<link rel="stylesheet" type="text/css" href="{{site.cloud_storage_path}}/devportal/highlighter.min._TTH_.css" />
+<link rel="stylesheet" type="text/css" href="{{site.cloud_storage_path}}/devportal/hipposidebarpage.min._TTH_.css" />
+<link rel="stylesheet" type="text/css" href="{{site.cloud_storage_path}}/devportal/hipposidebar._TTH_.css" />
+<!-- jQuery inc-plugin (MIT license) -->
+<script type="text/javascript" src="{{site.cloud_storage_path}}/devportal/includescript.min._TTH_.js"></script>
+<!-- Bootstrap (MIT license)-->
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<div class="rightMenu"> <span class="inc:{{site.cloud_storage_path}}/devportal/menus/{{page.sidebar}}._TTH_.html"> </span></div>
+<!-- AnchorJS (MIT license) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
+<!-- jQuery cookie (MIT license) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<!-- Navgoco (BSD license) -->
+<script src="{{site.cloud_storage_path}}/devportal/jquery.navgoco.min._TTH_.js"></script>
+<!-- FontAwesome (GPL license) -->
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<script type="text/javascript" src="{{site.cloud_storage_path}}/devportal/customscriptshippo._TTH_.js"></script>
+<!--[if IE]>
+<link rel="stylesheet" type="text/css" href="{{site.cloud_storage_path}}/devportal/navtabshippo._TTH_.css" />
+<![endif]-->
+
+<style>
+ul#markdown-toc::before  {
+content: "{{site.uistring.tableofcontents}}"
+ }
+ </style>
+
+{% include github_button.html %}
+
+{% if page.simple_map == true %}
+<script>
+    $(document).ready ( function(){
+        $('.box{{page.box_number}}').addClass('active');
+    });
+</script>
+
+{% include {{page.map_name}} %}
+{% endif %}
+
+{{content}}

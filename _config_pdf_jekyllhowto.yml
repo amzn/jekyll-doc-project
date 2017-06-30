@@ -1,0 +1,60 @@
+######## Customize these Values ##########
+print_title: "Jekyll How-to Guide"
+print_subtitle: Version 1.0
+sidebar: jekyllhowto
+folder_path: /Users/tomjoht/projects/multioutput/Devcomm-jekyll-doc-project/_site
+title_page_image: docs/jekyllhowto/images/company_logo_big.png
+copyright_notice: >
+  This is the copyright notice...
+########
+
+
+############# Sidebars Used #############
+sidebars:
+  - generic
+  - jekyllhowto
+
+language: english
+target: jekyll
+format: pdf
+
+destination: _site
+port: 4000
+highlighter: rouge
+exclude:
+  - mobi
+  - pdf
+
+markdown: kramdown
+kramdown:
+ input: GFM
+ auto_ids: true
+ hard_wrap: false
+ syntax_highlighter: rouge
+
+collections:
+  docs:
+    output: true
+
+sass:
+    style: compressed
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: pages
+    values:
+      layout: printpdf
+  -
+    scope:
+      path: ""
+      type: docs
+    values:
+      layout: printpdf
+
+image_type: a
+image_path: docs
+audio_path: docs
+
+site_type: jekyll
