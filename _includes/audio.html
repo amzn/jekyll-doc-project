@@ -1,4 +1,4 @@
 <audio {% if {{include.title}} %}title="{{include.title}}"{% endif %} controls="controls">
     Your browser does not support the <code>audio</code> element.
-    <source src="{{site.audio_path | append: "/" }}{{include.file}}{% if site.target == "hippo" %}._TTH_{% endif %}.{{include.type}}" type="audio/mp3" />
+    <source src="{{site.audio_path | append: "/" }}{{include.file}}" type="audio/mp3" />
 </audio>

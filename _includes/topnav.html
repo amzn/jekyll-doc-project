@@ -3,12 +3,12 @@
 <head>
     <meta charset="utf-8">
     {% if page.layout == "homepage" or page.type == "search" or page.type =="404" %}
-    <title>{{page.title}} | {{site.title}}</title>
+    <title>{{page.title}} | {{site.uistring.title}}</title>
     {% else %}
     <title>{{page.title}} | {{page.product}}</title>
     {% endif %}
     <base>
-    <meta name="description" content="{% if page.content %}{{ page.content | truncatewords: 30 | strip_html }} {% else %}{{site.uistring.description}}{% endif %}" />
+    <meta name="description" content="{% if page.content %}{{ page.content | truncatewords: 30 | strip_html }} {% else %}{{site.uistring.description}}{% endif %}" >
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google" value="notranslate">
     <link rel="icon"  type="image/x-icon" href="{{site.favicon}}">
@@ -166,7 +166,7 @@
                      <div id="search-topnav-container">
                         <form action="search.html" method="get">
                           <div class="input-group search">
-                            <input type="text" id="search-box" name="query" class="form-control" placeholder="{{site.uistring.search_placeholder_product}}">
+                            <input type="text" id="search-box" name="query" class="form-control" placeholder="{{site.uistring.search_placeholder_text}}">
                             <div class="input-group-btn">
                               <button class="btn btn-default" type="submit" value="search">
                                 <i class="glyphicon glyphicon-search"></i>

@@ -1,3 +1,7 @@
+---
+layout: null
+---
+
 (function() {
   function displaySearchResults(results, store) {
     var searchResults = document.getElementById('search-results');
@@ -15,7 +19,7 @@
       searchResults.innerHTML = appendString;
     } else {
       // this is a hack for the inability to submit different language strings here
-      searchResults.innerHTML = '<span style="color: red"><i class="fa fa-times" aria-hidden="true"></i><i class="fa fa-times" aria-hidden="true"></i><i class="fa fa-times" aria-hidden="true"></i><i class="fa fa-times" aria-hidden="true"></i><i class="fa fa-times" aria-hidden="true"></i></span><p><br/>No matches found. Try using other keywords?</p>';
+      searchResults.innerHTML = '<span style="color: red"><i class="fa fa-times" aria-hidden="true"></i><i class="fa fa-times" aria-hidden="true"></i><i class="fa fa-times" aria-hidden="true"></i><i class="fa fa-times" aria-hidden="true"></i><i class="fa fa-times" aria-hidden="true"></i></span><p><br/>{{site.uistring.no_search_results_found}}</p>';
     }
   }
 

@@ -1,1 +1,1 @@
-bundle exec jekyll serve --config _config_pdf.yml
+jekyll serve --config _config.yml,_config_pdf.yml

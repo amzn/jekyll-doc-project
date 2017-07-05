@@ -102,7 +102,7 @@ You can generate a PDF of your Jekyll project. The PDF uses [Prince XML](https:/
 11.  Create a Jekyll server shortcut file to build the PDF-friendly output that the Prince script will consume. Copy **serve_pdf_jekyllhowto.sh** and customize the file name with your own project. Open the file and customize the PDF file name to match your PDF configuration file:
 
      ```
-     bundle exec jekyll serve --config _config_pdf_jekyllhowto.yml
+     jekyll serve --config _config_pdf_jekyllhowto.yml
      ```
 
 12. Create a build shortcut file to make it easy to run Prince to generate the PDF. Copy **build_pdf_jekyllhowto.sh** and customize the file name with your own project. Open the file and customize the PDF file name (change `jekyllhowto.pdf`):
@@ -152,7 +152,7 @@ If you just want to create a simple PDF of one page in your docs, you can skip m
 2.  Build the HTML-friendly version of the site:
 
     ```
-    bundle exec jekyll serve --config _config_pdf_jekyllhowto.yml
+    jekyll serve --config _config_pdf_jekyllhowto.yml
     ```
 
 3.  From the command line, navigate to the \_site folder. Then run this:

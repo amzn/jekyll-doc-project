@@ -5,7 +5,7 @@ sidebar: jekyllhowto
 product: Jekyll How-to Guide
 ---
 
-This page covers all the details you need to know about content and formatting, including topics such as page directories, links, alerts, images, and more.
+This page covers all the details you need to know about content and formatting, including topics such as page directories, links, alerts, images, and more.  
 
 * TOC
 {:toc}
@@ -42,7 +42,7 @@ product: My Product
 
 The `layout` property for the sidebar is specified in the configuration file's defaults. `_config.yml` specifies a Jekyll layout (`default.html`).
 
-The format for any content in the front matter must be in YAML syntax. You can't use Liquid or other `{%raw%}{{ }}{%endraw%}` syntax in your front matter. (In other words, no variables in YAML.)
+The format for any content in the front matter must be in YAML syntax. You can't use Liquid or other `{% raw %}{{ }}{% endraw %}` syntax in your front matter. (In other words, no variables in YAML.)
 
 The `permalink` should match your file name exactly, and it should include the html file extension (even if your file is markdown).
 
@@ -114,6 +114,7 @@ Second level header
 First level headers are underlined with an equals sign (but since h1 headings are used only for the doc title, not any subheadings within the doc, you won't see them). Levels beyond 2 use the regular pounds signs (`###`) for markup.
 
 
+
 ## Bulleted Lists
 
 This is a bulleted list:
@@ -131,6 +132,9 @@ Use two spaces after the asterisk.
 *  first item
 *  second item
 *  third item
+
+
+
 
 ## Numbered list
 
@@ -247,7 +251,7 @@ For the sake of simplicity, use two spaces after the dot for numbers 1 through 9
 For alerts, use the alerts templates, like this:
 
 ```liquid
-{%raw%}{% include note.html content="This is a note." %}{%endraw%}
+{% raw %}{% include note.html content="This is a note." %}{% endraw %}
 ```
 
 **Result:**
@@ -256,7 +260,7 @@ For alerts, use the alerts templates, like this:
 -----
 
 ```liquid
-{%raw%}{% include tip.html content="This is a tip." %}{%endraw%}
+{% raw %}{% include tip.html content="This is a tip." %}{% endraw %}
 ```
 
 **Result:**
@@ -265,7 +269,7 @@ For alerts, use the alerts templates, like this:
 -----
 
 ```liquid
-{%raw%}{% include warning.html content="This is a warning." %}{%endraw%}
+{% raw %}{% include warning.html content="This is a warning." %}{% endraw %}
 ```
 
 **Result:**
@@ -274,7 +278,7 @@ For alerts, use the alerts templates, like this:
 -----
 
 ```liquid
-{%raw%}{% include important.html content="This is important." %}{%endraw%}
+{% raw %}{% include important.html content="This is important." %}{% endraw %}
 ```
 
 **Result:**
@@ -285,7 +289,7 @@ For alerts, use the alerts templates, like this:
 Alerts have just one include property: `content`. If you need to use quotation inside the `content` quotation marks, escape the quotation marks by putting back slashes (`\`) before them.
 
 ```liquid
-{%raw%}{{% include warning.html content="This is a \"serious\" warning." %}{%endraw%}
+{% raw %}{{% include warning.html content="This is a \"serious\" warning." %}{% endraw %}
 ```
 
 **Result:**
@@ -321,8 +325,8 @@ As with alerts, you can use Markdown inside of callouts.
 Suppose you have a product name or some other property that you're storing as a variable in your configuration file, and you want to use this variable in the `content` parameter for your alert. You will get an error if you use Liquid syntax inside a include parameter. For example, this syntax will produce an error:
 
 ```liquid
-{%raw%}{% include note.html content="The {{site.company}} is pleased to announce
-an upcoming release." %}{%endraw%}
+{% raw %}{% include note.html content="The {{site.company}} is pleased to announce
+an upcoming release." %}{% endraw %}
 ```
 
 To use variables in your include parameters, you must use the "variable parameter" approach. First you use a `capture` tag to capture some content. Then you reference this captured tag in your include. Here's an example.
@@ -338,13 +342,13 @@ I want to use this variable in my note include.
 First, before the note, capture the content for the note's include like this:
 
 ```liquid
-{%raw%}{% capture company_note %}The {{site.myvariable}} company is pleased to announce an upcoming release.{% endcapture %}{%endraw%}
+{% raw %}{% capture company_note %}The {{site.myvariable}} company is pleased to announce an upcoming release.{% endcapture %}{% endraw %}
 ```
 
 Now reference the `company_note` in your `include` parameter like this:
 
 ```liquid
-{%raw%}{% include note.html content=company_note}{%endraw%}
+{% raw %}{% include note.html content=company_note}{% endraw %}
 ```
 
 **Result**:
@@ -549,7 +553,7 @@ myvariable: ACME
 Then reference the property through the <code>site</code> namespace:
 
 ```liquid
-{%raw%}{{site.myvariable}}{%endraw%}
+{% raw %}{{site.myvariable}}{% endraw %}
 ```
 
 **Result:**
@@ -867,7 +871,7 @@ You can have an empty line between the class or ID tag (`{: #special}`) and the 
 To insert an image into your content, use the image.html include template that is set up:
 
 ```liquid
-{%raw%}{% include image.html file="company_logo.png" url="http://developer.company.com" alt="My alternative image text" caption="This is my caption" border="true" max-width="90%" %}{%endraw%}
+{% raw %}{% include image.html file="company_logo.png" url="http://developer.company.com" alt="My alternative image text" caption="This is my caption" border="true" max-width="90%" %}{% endraw %}
 ```
 
 **Result:**
@@ -908,7 +912,7 @@ If you want to have some images appear only in certain languages, use conditiona
 For inline images, such as with a button that you want to appear inline with text, use the inline_image.html include, like this:
 
 ```liquid
-Click the **Android SDK Manager** button {%raw%}{% include inline_image.html file="androidsdkmanagericon.png" alt="SDK button" border="true" max-width="90%" %}{%endraw%}
+Click the **Android SDK Manager** button {% raw %}{% include inline_image.html file="androidsdkmanagericon.png" alt="SDK button" border="true" max-width="90%" %}{% endraw %}
 ```
 
 **Result:**
@@ -1023,12 +1027,13 @@ Then make links in your content like this:
 
 For more information, see [Riperian][glossary#riperian].
 
+
 ## Tooltips
 
 You can leverage your glossary for tooltips by using the tooltips.html include. Here's an example:
 
 ```
-{% raw %The setting was {% include tooltips.html term="riperian" capitalize="true" %} to say the least.
+{% raw %}The setting was {% include tooltips.html term="riperian" capitalize="true" %} to say the least.
 
 I cannot believe she described this canal trail as {% include tooltips.html term="riperian" %} in the book.{% endraw %}
 ```
@@ -1057,6 +1062,7 @@ The parameters of the tooltips include are as follows:
 |----|-----|
 | term | The glossary term in the glossary.yml file |
 | capitalize | Include only if you want the term capitalized. If so, set it equal to `true` and treat as a string. (A capitalization filter gets placed on the glossary term.) If you omit the term, no capitalization filter gets applied to the term. If the term is capitalized, you don't need to also apply this filter. |
+
 
 ## Navtabs
 
@@ -1178,5 +1184,6 @@ Inside the \_includes folder (create one if you don't have one), create the refe
 Customize the text and links that you want. Note that you can't use automated links here. You have to hard-code the links in HTML.
 
 Also note that you can't have too many workflow squares (the max is 5-6).
+
 
 {% include links.html %}

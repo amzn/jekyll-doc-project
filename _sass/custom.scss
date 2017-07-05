@@ -78,23 +78,23 @@ a.no_icon:after
 }
 
 /* Github edit button */
-
 i.fa.fa-github.fa-lg:hover,
 a.githubButton.noExtIcon:hover {
   color: black;
   text-decoration: none;
 }
 a.editButton {
-  color: #000000;
+  color: #666;
+  text-decoration: none;
 }
 a.editButton:hover {
   text-decoration: none;
-  color: #777;
+  color: black;
 }
 .githubButton {
   color: black;
   background-color: white;
-  border: 1px solid #dedede;
+  border: 1px solid #777;
   padding: 7px;
   border-radius: 5px;
   margin: 20px 0px 10px 0px;
@@ -137,7 +137,7 @@ a.editButton:hover {
 
 /* syntax highlightig */
 
-.highlight .err {
+body.docs .highlight .err {
   color: #a61717;
   background-color: transparent !important;
 }
@@ -231,7 +231,7 @@ dd pre {
 }
 
 
-.highlight .err {
+body.docs .highlight .err {
     color: #a61717;
     background-color: transparent !important;
 }
@@ -367,7 +367,7 @@ ul.homepageLinks li {
   margin-bottom: 6px;
 }
 
-a code.highlighter-rouge {
+a codebody.docs .highlighter-rouge {
     color: #337ab7;
   }
 /* end homepage */

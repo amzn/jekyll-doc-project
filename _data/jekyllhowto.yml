@@ -50,11 +50,6 @@ folders:
     ref: jekyllhowto-pdf
     pdf: true
 
-  - title: Localize your Content
-    jurl: /jekyllhowto-localization.html
-    ref: jekyllhowto-localization
-    pdf: true
-
   - title: Troubleshooting
     jurl: /jekyllhowto-troubleshooting.html
     ref: jekyllhowto-troubleshooting
@@ -64,10 +59,6 @@ folders:
   pdf: true
   jurl: /minitoc_general_jekyll_topics.html
   folderitems:
-  - title: About Ruby Gems and Bundler
-    jurl: /jekyllhowto-about-ruby-gems-etc.html
-    ref: jekyllhowto-about-ruby-gems-etc
-    pdf: true
 
   - title: Install Jekyll on Mac
     jurl: /jekyllhowto-install-jekyll-on-mac.html

@@ -59,149 +59,9 @@ Snippets expand stored text from a keyword shortcut. For example, if you type **
 
 To configure snippets:
 
+1.  Copy the snippets file in **assets/snippets.txt**.
 1.  In Atom, go to **Atom > Snippets**.
-2.  Copy and paste the code from the snippets from the **Snippets code block below** to replace the existing snippet contents. Make sure your cursor is flush left before pasting the content.
-
-```
-# Your snippets
-#
-# Atom snippets allow you to enter a simple prefix in the editor and hit tab to
-# expand the prefix into a larger code block with templated values.
-#
-# You can create a new snippet in this file by typing "snip" and then hitting
-# tab.
-#
-# An example CoffeeScript snippet to expand log to console.log:
-#
-# '.source.coffee':
-#   'Console log':
-#     'prefix': 'log'
-#     'body': 'console.log $1'
-#
-# Each scope (e.g. '.source.coffee' above) can only be declared once.
-#
-# This file uses CoffeeScript Object Notation (CSON).
-# If you are unfamiliar with CSON, you can read more about it in the
-# Atom Flight Manual:
-# http://flight-manual.atom.io/using-atom/sections/basic-customization/#_cso
-'.source.gfm':
-  'TOC':
-    'prefix': 'toc'
-    'body': """
-      * TOC
-      {:toc}
-    """
-  'front':
-    'prefix': 'front'
-    'body': """
-      ---
-      title: $1
-      permalink: $2
-      sidebar: $3
-      product: $4
-      ---
-    """
-  'comment':
-    'prefix': 'comment'
-    'body': '{% comment %} $1 {% endcomment %}$0'
-  'callout':
-    'prefix': 'callout'
-    'body': '{% include callout.html type="default primary success danger warning info" %} $0'
-  'note':
-    'prefix': 'note'
-    'body': '{% include note.html content="$1" %} $0'
-  'tip':
-    'prefix': 'tip'
-    'body': '{% include tip.html content="$1" %} $0'
-  'warning':
-    'prefix': 'warning'
-    'body': '{% include warning.html content="$1" %} $0'
-  'warning':
-    'prefix': 'warning'
-    'body': '{% include warning.html content="$1" %} $0'
-  'links':
-    'prefix': 'links'
-    'body': '{% include links.html %} $0'
-  'image':
-    'prefix': 'image'
-    'body': '{% include image.html  file="$1" max-width="$2" border="$3"  url="$4" caption="$5" alt="$6" %} $0'
-  'inline_image':
-    'prefix': 'inline_image'
-    'body': '{% include inline_image.html  file="$1" max-width="$2" border="$3" alt="$4" %} $0'
-  'audio':
-    'prefix': 'audio'
-    'body': '{% include audio.html title="$1" file="$2" type="$3" %}'
-  'bookmark':
-    'prefix': 'bookmark'
-    'body': '{#yourtag}'
-  'comment':
-    'prefix': 'comment'
-    'body': '{% comment %} $1 {% endcomment %} $0'
-  'raw':
-    'prefix': 'raw'
-    'body': '{% raw %} $1 {% endraw %} $0'
-  'code':
-    'prefix': 'code'
-    'body': """
-      ```$1
-      $2
-      ```
-
-      $0
-    """
-  'table':
-    'prefix': 'table'
-    'body': """
-      <table>
-         <colgroup>
-            <col width="30%" />
-            <col width="70%" />
-         </colgroup>
-         <thead>
-            <tr>
-               <th markdown="span">$1</th>
-               <th markdown="span">$2</th>
-            </tr>
-         </thead>
-         <tbody>
-            <tr>
-               <td markdown="span">$3</td>
-               <td markdown="span">$4</td>
-            </tr>
-            <tr>
-               <td markdown="span">$5</td>
-               <td markdown="span">$6</td>
-            </tr>
-         </tbody>
-      </table>
-    """
-
-  'navtabs':
-    'prefix': 'navtabs'
-    'body': """
-      <ul id="profileTabs" class="nav nav-tabs">
-        <li class="active"><a class="noCrossRef" href="#firsttab" data-toggle="tab">$1First Tab</a></li>
-        <li><a class="noCrossRef" href="#secondtab" data-toggle="tab">$2Second Tab</a></li>
-        <li><a class="noCrossRef" href="#thirdtab" data-toggle="tab">$3Third Tab</a></li>
-       </ul>
-       <div class="tab-content">
-       <div role="tabpanel" class="tab-pane active" id="firsttab">
-          <div class="subheading">$4First Tab</div>
-          <p>Some text</p>
-        </div>
-        <div role="tabpanel" class="tab-pane" id="secondtab">
-          <div class="subheading">$5Second tab</div>
-          <p>Some text...</p>
-        </div>
-        <div role="tabpanel" class="tab-pane" id="thirdtab">
-          <div class="subheading">$6Third tab</div>
-            <p>Some text ...</p>
-         </div>
-        </div>
-      """
-```
-
-
+2.  Replace the existing snippet contents with the content you pasted. Make sure your cursor is flush left before pasting the content.
 
 Here are the shortcuts:
 
@@ -222,9 +82,8 @@ Here are the shortcuts:
 *  xnavtabs
 *  xtable
 
-Simply type the shortcut and press **Enter**.
+To insert the code from the snippet, type the shortcut and press **Enter**. Note that you have to be in a Markdown file for the snippets to work. The snippets are associated with Markdown files.
 
 If you have the "autocomplete plus" package turned on in Atom, you'll see prompts when you enter this text. You can also add your own shortcuts to your snippets file by following the same format.
-
 
 {% include links.html %}

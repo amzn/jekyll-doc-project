@@ -100,7 +100,7 @@ bundle install
 Then run this:
 
 ```
-bundle exec jekyll serve --config configs/jekyll_english.yml
+jekyll serve --config configs/jekyll_english.yml
 ```
 
 Now you can press **Ctrl+C** and run `. jekyll.sh` as usual.

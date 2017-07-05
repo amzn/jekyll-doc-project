@@ -1,12 +1,8 @@
 ---
 title: Search
-layout: default
-github_button: false
-sidebar: null
 type: search
 permalink: search.html
 ---
-
 
 <div style="display:none">
 <form action="search.html" method="get">
@@ -38,6 +34,7 @@ permalink: search.html
       {% unless forloop.last %},{% endunless %}
       {% endunless %}
     {% endfor %},
+
     {% for doc in site.pages %}
       {% unless doc.search == false %}
 

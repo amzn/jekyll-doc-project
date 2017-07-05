@@ -8,14 +8,14 @@ custom_breadcrumb: Getting Started
 
 ---
 
-The Jekyll Doc Project theme is intended for technical documentation projects, such as user guides for software, hardware, and APIs. This gem-based Jekyll theme (which has an Apache 2.0 open source license) uses pages exclusively and features robust multi-level navigation. It includes both web and PDF output. The theme delivers most of its files through a Rubygem, allowing you to stay updated with theme changes using Bundler. The GitHub repo is here: [amzn/jekyll-doc-project](https://github.com/amzn/jekyll-doc-project).
+The Jekyll Doc Project theme is intended for technical documentation projects, such as user guides for software, hardware, and APIs. This Jekyll theme (which has an Apache 2.0 open source license) uses pages exclusively and features robust multi-level navigation. It includes both web and PDF output. The GitHub repo is here: [amzn/jekyll-theme-doc-project](https://github.com/amzn/jekyll-theme-doc-project).
 
 * TOC
 {:toc}
 
 ## Installation
 
-Before you can install the project, you may need to install Jekyll and Bundler.
+Before you can install the project, you may need to install Jekyll.
 
 1.  Install Jekyll:
     * [Install Jekyll on Mac][jekyllhowto-install-jekyll-on-mac]
@@ -23,76 +23,29 @@ Before you can install the project, you may need to install Jekyll and Bundler.
 
     You can check if you already have Jekyll installed by running `jekyll -v`. If you don't have the latest version, run `gem update jekyll`.
 
-2.  Install <a href="http://bundler.io">Bundler</a> (if you don't already have it):
+2.  Download the theme from the [amzn/jekyll-theme-doc-project](https://github.com/amzn/jekyll-theme-doc-project) repo.
+3.  Configure the values in the **\_config.yml** file based on the inline code comments in that file.
+4.  Serve or build the Jekyll site:
 
     ```
-    gem install bundler
+    jekyll serve
     ```
 
-    You can check your version of bundler by running `bundler -v`. If you don't have the latest version, run `gem update bundler`.
+## Overwriting Theme Files
 
-3.  Download the gem-based theme from the [amzn/jekyll-doc-project](https://github.com/amzn/jekyll-doc-project) repo. (Download or fork the theme rather than cloning it. You'll get updates using Bundler instead of running git pull.)
-
-4.  Use Bundler to install or update the gem-theme's files:
-
-    ```
-    bundle update
-    ```
-
-5.  Configure the values in the **\_config.yml** file based on the inline code comments in that file.
-
-## The Location of the Theme Files
-
-This version of the theme delivers the theme files through RubyGems, which means you won't see the \_includes, \_layouts, \_sass, or assets folders in the theme's files. They're instead stored in the gem. (You can pull them out of the gem if you want, but then you'll lose out on the ability to update the theme through Bundler.)
-
-The gem is called [jekyll-doc-project](https://rubygems.org/gems/jekyll-doc-project). By storing the files in a gem, the theme files become available (and easy to update) across many different repos. Without the gem, the theme files would be hard-coded in each repo, making it difficult to apply updates when the same theme is used on many different Jekyll projects.
-
-The theme files in the theme gem contain four folders:
-
-* \_includes
-* \_assets
-* \_layouts
-* \_sass
-
-To see which version of the gem you have, `cd` to your project's directory and run:
-
-```
-bundle show jekyll-doc-project
-```
-
-The response will indicate the version in the path. For example, if you see `/usr/local/lib/ruby/gems/2.3.0/gems/jekyll-doc-project-0.2.0`, that would mean you have version 0.2.0 of the gem. You can compare this version against the version listed on the [gem's RubyGem page](https://rubygems.org/gems/jekyll-doc-project).
-
-The `show` command tells you where the gem files are stored. On a Mac, you can run `open <path>`, replacing `<path>` with the `/usr/local/...` path returned above to open a Finder window showing the gem's files. On Windows, you can run `explorer <path>` to open an Explorer window.
-
-To update the gem, run the following from your Jekyll project directory:
-
-```
-bundle update jekyll-doc-project
-```
-
-Or just run `bundle update` to update all gems.
-
-When you run this command, any updates to the theme will be pulled into your gem.
-
-{% include note.html content="The theme's repos is at [amzn/jekyll-doc-project](https://github.com/amzn/jekyll-doc-project). This is the gem-based theme. The original repo that pushes out the gem into RubyGems (and which contains the \_layout, \_includes, \_sass, and \_assets folders directly in the Jekyll project rather than hidden away in a gem) is not on GitHub. But if you want to pull the gem files into your repo, you can do that by [converting the gem-based theme to a regular theme](http://jekyllrb.com/docs/themes/#converting-gem-based-themes-to-regular-themes)." %}
-
-## Overwriting Gem Files
-
-You can [overwrite any gem-based files](http://jekyllrb.com/docs/themes/#overriding-theme-defaults) by adding a file by a similar name in your project. (You can also add additional files not in the gem as well.)
-
-For example, suppose you want to overwrite the content in \_includes/logo.html. Add a directory called \_includes in your project and create a file called "logo.html". Any adjustments you make will overwrite the original \_includes/logo.html file stored in the gem. (Most likely you would copy the content from the \_includes/logo.html file in the gem as a basis for your modification.)
-
-It's expected that you'll add some of your own styles, since you'll most likely want to adjust the top navigation bar's color and style. There are two files specifically set up for this:
+You'll most likely want to add some of your own styles, esp. to style the top navigation bar and other elements. There are three files specifically set up for this:
 
 * **assets/css/pdf/user_defined_web_styles.css** (web styles)
 * **assets/css/pdf/user_defined_pdf_styles.css** (print styles)
 * **assets/js/user_defined_javascript.js** (web javascript)
 
-These files are blank but are referenced in the theme's layout files. By adding these files in your project and defining your styles, they will automatically be included in the layout. (If the layout didn't reference these files, you would have also needed to overwrite the layout files to include references to the stylesheets or js, but this was accounted for in the theme's construction.)
+These files are blank but are referenced in the theme's layout files. By adding these files in your project and defining your styles, they will automatically be included in the layout.
 
 ## Content Types
 
-This theme uses collections exclusively (instead of posts). Collections are a content type, like a page or post. In this case, the content type is a document within the "docs" folder. Documents function just like pages, for the most part. (When referring to them in this documentation,  "pages" and "documents" are used interchangeably.) Organize your pages inside the **\_docs** folder. Organize your pages with the folder structure that you want displayed in the [breadcrumb](#breadcrumbsection). Use the spacing and capitalization in your folder names that you want reflected in your breadcrumb path. For example, "Getting Started" instead of "getting_started".
+This theme uses collections exclusively (instead of posts). Collections are a content type, like a page or post. In this case, the content type is a document within the "docs" folder. Documents function just like pages, for the most part. (When referring to them in this documentation,  "pages" and "documents" are used interchangeably.) Organize your pages inside the **\_docs** folder.
+
+Organize your pages with the folder structure that you want displayed in the [breadcrumb](#breadcrumbsection). Use the spacing and capitalization in your folder names that you want reflected in your breadcrumb path. For example, "Getting Started" instead of "getting_started".
 
 The folder structure informs the breadcrumb display only. Upon build, the site output will pull all of the pages out of their folders, subfolders, etc., and put them into the root directory of \_site. This "flattening" of the page hierarchy enables relative linking in the project. Relative links allow you to view the built site offline or to push it from one environment or directory structure to the next without worrying about valid paths to theme assets or other links.
 

@@ -1,13 +1,5 @@
 
-
 ############# SITE PROPERTIES #############
-# title to appear in nav bar and page meta
-title: Jekyll Doc Project theme
-
-# the gem used for the project
-# to see the gem files, type "bundle show jekyll-doc-project". the returned folder shows the _includes, _layouts, _sass, and assets folders used in the gem.
-# you can overwrite any file by creating a similarly named file in your own project.
-theme: jekyll-doc-project
 
 # localhost port (can be anything)
 port: 4000
@@ -21,13 +13,16 @@ format: web
 # the little icon that appears in the browser window's tab
 favicon: assets/favicon.ico
 
-# appears in footer
-copyright: 2017 Your Company, Inc.
-
 ############# TOP NAVIGATION BAR ################
 
-# if you want to use a text title (the "title" property as defined above) instead of a logo image in your nav bar, comment out the logo below. Logo images are constrained at 50px in height.
+# use a logo image in your nav bar.
+use_logo: true
+
+# logo image to use. logo images are constrained at 50px in height.
 logo: assets/companylogo.png
+
+# use text title instead. text title read from uistring.title in ui strings section.
+use_text_title: false
 
 # make search bar appear in top nav?
 search_in_topnav: true
@@ -40,7 +35,6 @@ toggle-sidebar-button: true
 
 # in responsive view, show navbar toggle button?
 navbar-toggle: true
-
 
 ############# AUTOMATED LINKS #############
 
@@ -57,14 +51,8 @@ link_type: jurl
 # show feedback button in top nav bar?
 show_feedback: true
 
-# name of Feedback link
-feedback_link_name: Feedback
-
 # email address feedback gets sent to
 feedback_email: someemail@gmail.com
-
-# Auto-filled Subject link of email
-feedback_subject_line: Feedback about docs
 
 # note: to customize the auto-completed body text, overwrite it by adding _includes/feedback.html in your own theme.
 
@@ -79,9 +67,6 @@ github_button_location_below_title: false
 
 # inserts github link at bottom of page (least visible)
 github_button_location_page_bottom: false
-
-# text for github button
-github_edit_button_text: Edit on GitHub
 
 # link to your github repo. replace <organization> (if applicable) and <repo name> and <branch name>. Note that the github link will be {{site.github_editme_path}}/{{page.path}}
 github_editme_path: https://github.com/<organization>/<repo name>/blob/<branch name>
@@ -98,7 +83,9 @@ exclude:
   - build_*
   - gem_*
   - prince-list.txt
-  - jekyll-doc-project*
+  - jekyll-theme-doc-project*
+  - pdf
+  - mobi
 
 ############# IMAGE PATHS #############
 
@@ -111,7 +98,7 @@ audio_path: audio
 ############# CLOUD STORAGE PATH #############
 
 # most users can ignore this. if you have a layout that references assets on the cloud, you can store the asset path here.
-cloud_storage_path: https://images-na.ssl-images-company.com/images/G/01/mobile-apps
+cloud_storage_path: https://s3-us-west-1.amazonaws.com/devcomm-images/jekyllhowto
 
 
 ############# DEFAULTS #############
@@ -136,7 +123,6 @@ defaults:
       layout: default
       topnav: topnav
       footer: footer
-
   -
     scope:
       path: ""
@@ -144,8 +130,10 @@ defaults:
     values:
       layout: default
       topnav: topnav
-      type: search
       footer: footer
+      type: search
+      sidebar: jekyllhowto
+
   -
     scope:
       path: "images"
@@ -180,28 +168,6 @@ breadcrumb_home_display: true
 # Url for Home path to point to
 breadcrumb_home_url: http://yourcompanysite.com
 
-# Display name for "Home" path
-breadcrumb_home_name: Home
-
-########## UI text ###############
-# The UI text is separated into strings defined here to facilitate translation. Translate these for Japanese and German outputs.
-# Some other strings (for Github and Feedback buttons) appear in the related sections in this _config.yml file
-
-uistring:
-    tableofcontents: Table of Contents
-    log_doc_issue: Log Doc Issue
-    expandall: Expand All
-    collapseall: Collapse All
-    title: User Guide # Displays as site title on top nav bar and on site metadata
-    description: Description of the site # Displays as site description meta
-    search_placeholder_product: Search ...
-    search_results_page_title: Search results
-    search_no_results_found: No results found.
-    products: Products
-    docindex_product: Product
-    docindex_startpage: Starting page
-
-
 ##########  MARKDOWN PROCESS AND FILTER ##########
 # leave these settings as is unless you want to use something other than kramdown Markdown
 
@@ -225,3 +191,21 @@ kramdown:
 collections:
   docs:
     output: true
+
+########## UI text ###############
+# The UI text is separated into strings defined here to facilitate translation. Grouping them here also consolidates all UI text.
+# Translate these for Japanese and German outputs.
+
+uistring:
+    title: Jekyll Doc Project theme # title to appear in nav bar and page meta
+    description: Description of the site # Displays as site description meta tag for site
+    copyright: 2017 Your Company, Inc. # appears in footer
+    breadcrumb_home_name: Home # display name for "Home" path in the breadcrumb
+    tableofcontents: Table of Contents # text that appears before in-page table of contents
+    expandall: Expand All # appears as text in sidebar to expand all levels
+    collapseall: Collapse All # appears as text in sidebar to collapse all levels
+    search_placeholder_text: Search ... # appears as placeholder in search field
+    no_search_results_found: No matches found. Try using other keywords?
+    feedback_link_name: Feedback # name of Feedback link
+    feedback_subject_line: Feedback about docs # Auto-filled Subject link of email
+    github_edit_button_text: Edit on GitHub # text for github button
