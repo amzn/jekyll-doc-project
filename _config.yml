@@ -94,13 +94,6 @@ exclude:
 image_path: images
 audio_path: audio
 
-
-############# CLOUD STORAGE PATH #############
-
-# most users can ignore this. if you have a layout that references assets on the cloud, you can store the asset path here.
-cloud_storage_path: https://s3-us-west-1.amazonaws.com/devcomm-images/jekyllhowto
-
-
 ############# DEFAULTS #############
 # you can define default frontmatter values here. you can narrow the type down with subfolders (e.g., docs/myfolder).
 # you might want to list your sidebar and product as default frontmatter values
